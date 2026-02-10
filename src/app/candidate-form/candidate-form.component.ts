@@ -17,6 +17,7 @@ export class CandidateFormComponent {
   };
   level:String = 'junior';
   accepted:boolean = false;
+  immediat:boolean = false;
   options = [
     {id:1, label:'CDI', checked:false},
     {id:2,label:'freelance',checked:false}

@@ -80,6 +80,10 @@
         <label for="pitch-personnel">pitch personnel</label>
         <textarea name="pitch-personnel" id="pitch" placeholder="pitch personnel ...." maxlength="200"></textarea>
       </div>
+      <div class="form-group">
+        <label for="dispobilite">Disponibilité</label>
+        <input type="checkbox" name="disponibilité" [(ngModel)]="immediat">
+      </div>
 
       
       <button type="submit" [disabled]="loginForm.invalid">
