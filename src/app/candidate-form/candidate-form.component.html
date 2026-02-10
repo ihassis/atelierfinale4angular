@@ -91,21 +91,49 @@
         Postuler
       </button>
       <div class="debug-area">
-        <p>Carte Candidat</p>
-        <p>Nom</p>
-        <pre>{{ user.completename }}</pre>
-        <p>Email</p>
-        <pre>{{user.email}}</pre>
-        <p>Niveau</p>       
-        <pre>{{Niveau}}</pre>
-        <p>Contrat</p>
-        <pre>{{selectedContrat}}</pre>
-        <p>Disponibilité</p>
-        <pre>{{ immediat }}</pre>
-        <p>Bio</p>
-        <pre>{{ pitchPersonnel }}</pre>
-
-      </div>
+  <p>Carte Candidat</p>
+  <p>Nom</p>
+  @if (firstSubmitted) {
+    <pre>{{ savedCandidate.completename }}</pre>
+  } @else {
+    <pre>{{ user.completename }}</pre>
+  }
+  
+  <p>Email</p>
+  @if (firstSubmitted) {
+    <pre>{{ savedCandidate.email }}</pre>
+  } @else {
+    <pre>{{ user.email }}</pre>
+  }
+  
+  <p>Niveau</p>
+  @if (firstSubmitted) {
+    <pre>{{ savedCandidate.niveau }}</pre>
+  } @else {
+    <pre>{{ Niveau }}</pre>
+  }
+  
+  <p>Contrat</p>
+  @if (firstSubmitted) {
+    <pre>{{ savedCandidate.contrat }}</pre>
+  } @else {
+    <pre>{{ selectedContrat }}</pre>
+  }
+  
+  <p>Disponibilité</p>
+  @if (firstSubmitted) {
+    <pre>{{ savedCandidate.disponibilite }}</pre>
+  } @else {
+    <pre>{{ immediat }}</pre>
+  }
+  
+  <p>Bio</p>
+  @if (firstSubmitted) {
+    <pre>{{ savedCandidate.bio }}</pre>
+  } @else {
+    <pre>{{ pitchPersonnel }}</pre>
+  }
+</div>
 
     </form>
   </div>

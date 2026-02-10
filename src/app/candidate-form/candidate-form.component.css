@@ -1,4 +1,4 @@
-/* Container principal */
+
 .login-container {
   display: flex;
   justify-content: center;
@@ -17,7 +17,6 @@
   width: 100%;
 }
 
-/* Titre et sous-titre */
 h2 {
   color: #333;
   font-size: 28px;
@@ -31,7 +30,6 @@ h2 {
   margin: 0 0 30px 0;
 }
 
-/* Groupes de formulaire */
 .form-group {
   margin-bottom: 20px;
 }
@@ -44,7 +42,6 @@ h2 {
   font-size: 14px;
 }
 
-/* Inputs et select */
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group select,
@@ -68,13 +65,11 @@ h2 {
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-/* Textarea */
 .form-group textarea {
   resize: vertical;
   min-height: 100px;
 }
 
-/* Checkbox */
 .form-group input[type="checkbox"] {
   margin-right: 10px;
   width: 18px;
@@ -94,7 +89,6 @@ h2 {
   font-size: 14px;
 }
 
-/* Erreur */
 .error-border {
   border-color: #e74c3c !important;
 }
@@ -114,7 +108,6 @@ h2 {
   color: #e74c3c;
 }
 
-/* Bouton Postuler */
 button[type="submit"] {
   width: 100%;
   padding: 14px;
@@ -139,7 +132,6 @@ button[type="submit"]:disabled {
   cursor: not-allowed;
 }
 
-/* Debug area - Carte Candidat */
 .debug-area {
   background: #f8f9fa;
   border-radius: 8px;
@@ -175,7 +167,6 @@ button[type="submit"]:disabled {
   font-family: 'Courier New', monospace;
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   .login-card {
     padding: 25px;

@@ -15,33 +15,59 @@ export class CandidateFormComponent {
     email: '',
     niveau: ''
   };
+  firstSubmitted: boolean = false;
   selectedNiveau!: string;
   selectedContrat: string = '';
-  Niveau!:String;
-  get level(): string {
-    return this.options
-      .filter(opt => opt.checked)
-      .map(opt => opt.label)
-      .join(', ');
+  Niveau!:string;
+  savedCandidate = {
+    completename: '',
+    email: '',
+    niveau: '',
+    contrat: '',
+    disponibilite: false,
+    bio: ''
   }
+
   // level!:String;
   accepted!:boolean;
   immediat!:boolean;
-  pitchPersonnel:String = '';
+  pitchPersonnel:string = '';
   options = [
-    {id:1, label:'CDI', checked:false},
-    {id:2,label:'freelance',checked:false}
+    {id:1, label:'CDI'},
+    {id:2,label:'freelance'}
   ]
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      console.log('Niveau sélectionné:', this.selectedNiveau);
-      console.log('Contrats sélectionnés:', this.level);
-      console.log('Formulaire soumis ! Données :', this.user);
+      this.savedCandidate = {
+        completename: this.user.completename,
+        email: this.user.email,
+        niveau: this.Niveau,
+        contrat: this.selectedContrat,
+        disponibilite: this.immediat,
+        bio: this.pitchPersonnel
+      };
+      this.firstSubmitted = true;
+      console.log('Niveau sélectionné:', this.savedCandidate);
       alert('Données soumises avec succès ! (Voir console)');
+      this.resetForm(form);
     } else {
       console.log('Formulaire invalide');
     }
   }
+  resetForm(form: NgForm) {
+    form.resetForm();
+    this.user = {
+      completename: '',
+      email: '',
+      niveau: ''
+    };
+    this.selectedNiveau = '';
+    this.selectedContrat = '';
+    this.Niveau = '';
+    this.immediat = false;
+    this.pitchPersonnel = '';
+  }
+
 
 }
