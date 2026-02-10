@@ -16,6 +16,7 @@ export class CandidateFormComponent {
     niveau: ''
   };
   selectedNiveau!: string;
+  selectedContrat: string = '';
   Niveau!:String;
   get level(): string {
     return this.options

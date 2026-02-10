@@ -19,10 +19,10 @@
         @if (nameRef.invalid && nameRef.touched) {
           <div class="error-msg"> 
             @if (nameRef.errors?.['required']) {
-              <span>⚠️ Le nom complet est requis.</span>
+              <span>Le nom complet est requis.</span>
             }
             @if (nameRef.errors?.['minlength']) {
-              <span>⚠️ Minimum 3 caractères (Actuel: {{ nameRef.value.length }}).</span>
+              <span>Minimum 3 caractères (Actuel: {{ nameRef.value.length }}).</span>
             }
           </div>
         }
@@ -45,10 +45,10 @@
         @if (emailRef.invalid && emailRef.touched) {
           <div class="error-msg">
             @if (emailRef.errors?.['required']) {
-              <span>⚠️ L'email est obligatoire.</span>
+              <span> L'email est obligatoire.</span>
             }
             @if (emailRef.errors?.['email']) {
-              <span>⚠️ Format d'email invalide.</span>
+              <span>Format d'email invalide.</span>
             }
           </div>
         }
@@ -71,7 +71,7 @@
         <label>Preferences de mission</label>
         @for(opt of options; track opt.id) {
           <div>
-            <input type="checkbox" [(ngModel)]="opt.checked" name="contrat_{{opt.id}}"/>
+            <input type="radio" [(ngModel)]="selectedContrat" name="contrat" [value]="opt.label"/>
             <span>{{ opt.label }}</span>
           </div>
         }
@@ -99,7 +99,7 @@
         <p>Niveau</p>       
         <pre>{{Niveau}}</pre>
         <p>Contrat</p>
-        <pre>{{level}}</pre>
+        <pre>{{selectedContrat}}</pre>
         <p>Disponibilité</p>
         <pre>{{ immediat }}</pre>
         <p>Bio</p>

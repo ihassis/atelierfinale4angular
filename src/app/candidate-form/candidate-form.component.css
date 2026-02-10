@@ -1,0 +1,195 @@
+/* Container principal */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login-card {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Titre et sous-titre */
+h2 {
+  color: #333;
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: #999;
+  font-size: 14px;
+  margin: 0 0 30px 0;
+}
+
+/* Groupes de formulaire */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Inputs et select */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: blue;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Textarea */
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* Checkbox */
+.form-group input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+.form-group > div {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.form-group span {
+  color: #555;
+  font-size: 14px;
+}
+
+/* Erreur */
+.error-border {
+  border-color: #e74c3c !important;
+}
+
+.error-msg {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 5px;
+  padding: 8px 12px;
+  background-color: #fadbd8;
+  border-radius: 4px;
+  border-left: 3px solid #e74c3c;
+}
+
+.error-msg span {
+  display: block;
+  color: #e74c3c;
+}
+
+/* Bouton Postuler */
+button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  color: white;
+  background-color: #667eea;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Debug area - Carte Candidat */
+.debug-area {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 25px;
+  margin-top: 40px;
+  border-top: 2px solid #e0e0e0;
+}
+
+.debug-area > p:first-child {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 20px 0;
+}
+
+.debug-area p {
+  color: #666;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 15px 0 5px 0;
+}
+
+.debug-area pre {
+  background: white;
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 13px;
+  word-break: break-word;
+  white-space: pre-wrap;
+  font-family: 'Courier New', monospace;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .login-card {
+    padding: 25px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .debug-area {
+    padding: 15px;
+  }
+}
