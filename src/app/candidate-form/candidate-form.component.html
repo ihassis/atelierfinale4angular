@@ -57,7 +57,7 @@
       
       <div class="form-group">
         <label for="niveau">Niveau</label>
-        <select [(ngModel)]="level" name="level">
+        <select [(ngModel)]="Niveau" name="level">
           <option value="">-- Selectionnez --</option>
           <option value="Junior">Junior</option>
           <option value="Confirmé">Confirmé</option>
@@ -71,15 +71,16 @@
         <label>Preferences de mission</label>
         @for(opt of options; track opt.id) {
           <div>
-            <input type="checkbox" [(ngModel)]="opt.checked" [name]="'option-' + opt.id"/>
+            <input type="checkbox" [(ngModel)]="opt.checked" name="contrat_{{opt.id}}"/>
             <span>{{ opt.label }}</span>
           </div>
         }
       </div>
       <div class="form-group">
         <label for="pitch-personnel">pitch personnel</label>
-        <textarea name="pitch-personnel" id="pitch" placeholder="pitch personnel ...." maxlength="200"></textarea>
-      </div>
+        <textarea [(ngModel)]="pitchPersonnel" name="pitchPersonnel" placeholder="pitch personnel ...." maxlength="200"></textarea>
+         
+    </div>
       <div class="form-group">
         <label for="dispobilite">Disponibilité</label>
         <input type="checkbox" name="disponibilité" [(ngModel)]="immediat">
@@ -89,15 +90,21 @@
       <button type="submit" [disabled]="loginForm.invalid">
         Postuler
       </button>
-
-      
       <div class="debug-area">
-        <p>État du formulaire : 
-          <span [style.color]="loginForm.valid ? 'green' : 'red'">
-            {{ loginForm.valid ? 'VALIDE' : 'INVALIDE' }}
-          </span>
-        </p>
-        <pre>{{ user  }}</pre>
+        <p>Carte Candidat</p>
+        <p>Nom</p>
+        <pre>{{ user.completename }}</pre>
+        <p>Email</p>
+        <pre>{{user.email}}</pre>
+        <p>Niveau</p>       
+        <pre>{{Niveau}}</pre>
+        <p>Contrat</p>
+        <pre>{{level}}</pre>
+        <p>Disponibilité</p>
+        <pre>{{ immediat }}</pre>
+        <p>Bio</p>
+        <pre>{{ pitchPersonnel }}</pre>
+
       </div>
 
     </form>
