@@ -1,0 +1,101 @@
+<div class="login-container">
+  <div class="login-card">
+    <h2>Formulaire Candidature</h2>
+    <p class="subtitle">Veuillez inserer vos informations</p>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+      
+      
+      <div class="form-group">
+        <label for="completename">Full Name</label>
+        <input type="text"
+          id="completename"
+          name="completename" 
+          placeholder="John Doe"
+          [(ngModel)]="user.completename" 
+          required 
+          minlength="3"
+          #nameRef="ngModel"
+          [class.error-border]="nameRef.invalid && nameRef.touched">
+        @if (nameRef.invalid && nameRef.touched) {
+          <div class="error-msg"> 
+            @if (nameRef.errors?.['required']) {
+              <span>⚠️ Le nom complet est requis.</span>
+            }
+            @if (nameRef.errors?.['minlength']) {
+              <span>⚠️ Minimum 3 caractères (Actuel: {{ nameRef.value.length }}).</span>
+            }
+          </div>
+        }
+      </div>
+
+      
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          id="email"
+          name="email" 
+          placeholder="exemple@email.com"
+          [(ngModel)]="user.email" 
+          required 
+          email
+          #emailRef="ngModel"
+          [class.error-border]="emailRef.invalid && emailRef.touched"
+        > 
+        @if (emailRef.invalid && emailRef.touched) {
+          <div class="error-msg">
+            @if (emailRef.errors?.['required']) {
+              <span>⚠️ L'email est obligatoire.</span>
+            }
+            @if (emailRef.errors?.['email']) {
+              <span>⚠️ Format d'email invalide.</span>
+            }
+          </div>
+        }
+      </div>
+
+      
+      <div class="form-group">
+        <label for="niveau">Niveau</label>
+        <select [(ngModel)]="level" name="level">
+          <option value="">-- Selectionnez --</option>
+          <option value="Junior">Junior</option>
+          <option value="Confirmé">Confirmé</option>
+          <option value="Senior">Senior</option>
+          <option value="Lead">Lead</option>
+        </select>
+      </div>
+
+      
+      <div class="form-group">
+        <label>Preferences de mission</label>
+        @for(opt of options; track opt.id) {
+          <div>
+            <input type="checkbox" [(ngModel)]="opt.checked" [name]="'option-' + opt.id"/>
+            <span>{{ opt.label }}</span>
+          </div>
+        }
+      </div>
+      <div class="form-group">
+        <label for="pitch-personnel">pitch personnel</label>
+        <textarea name="pitch-personnel" id="pitch" placeholder="pitch personnel ...." maxlength="200"></textarea>
+      </div>
+
+      
+      <button type="submit" [disabled]="loginForm.invalid">
+        Postuler
+      </button>
+
+      
+      <div class="debug-area">
+        <p>État du formulaire : 
+          <span [style.color]="loginForm.valid ? 'green' : 'red'">
+            {{ loginForm.valid ? 'VALIDE' : 'INVALIDE' }}
+          </span>
+        </p>
+        <pre>{{ user  }}</pre>
+      </div>
+
+    </form>
+  </div>
+</div>
